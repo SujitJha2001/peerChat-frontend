@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PeerChat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href='main.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+</head>
+
+<body>
+    <div id="videos">
+        <video class="video-player" id="user-1" autoplay playsinline></video>
+        <video class="video-player" id="user-2" autoplay playsinline></video>
+    </div>
+    <div class="room-controls">
+        <div class="room-buttons">
+            <button id="createRoomBtn" onclick="createRoom()">Create Room</button>
+            <h1>OR</h1>
+            <button id="joinRoomBtn" onclick="joinRoom()">Join Room</button>
+        </div>
+        <div class="label-class">
+            <label id="joinRoomLabel">Room Name:</label>
+            <input id="joinRoomInput" type="text" id="roomName" style="width: auto;">
+            <label id="createRoomLabel" style="display: none;">Room Name:</label>
+            <input id="createRoomInput" type="text" style="display: none; width: auto;">
+            <button id="copyRoomNameBtn" onclick="copyRoomId()" style="display: none;">Copy</button>
+        </div>
+    </div>
+    <div id="controls">
+        <div class="control-container" id="camera-btn">
+            <img src="icons/camera.png" />
+        </div>
+        <div class="control-container" id="mic-btn">
+            <img src="icons/mic.png" />
+        </div>
+        <!-- <div class="control-container" id="leave-btn">
+            <img src="icons/phone.png" />
+        </div> -->
+
+    </div>
+</body>
+<script src="main.js"></script>
+
+</html>

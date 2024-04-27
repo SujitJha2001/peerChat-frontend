@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+button {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+
+input {
+    padding: 5px;
+}
+
+#videos {
+    margin: 5px 5px;
+    /* 20px margin from the top and bottom, 0 margin from left and right */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+}
+
+.video-player {
+    background-color: black;
+    width: 100%;
+    height: 300px;
+}
+
+#user-2 {
+    display: none;
+}
+
+.room-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 2em;
+}
+
+.room-buttons, .room-inputs {
+    margin-bottom: 1em; /* Add some space between control groups */
+}
+
+.room-inputs input {
+    width: 100%; /* Make input fields fill the container width */
+}
+
+.room-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.label-class {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#controls {
+    position: relative;
+    z-index: 1;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+
+.control-container {
+    cursor: pointer;
+    background-color: rgb(179, 102, 249, .9);
+    padding: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 0.5em; /* Add margin between buttons */
+}
+
+.control-container img {
+    height: 30px;
+    width: 30px;
+}
+
+#leave-btn {
+    background-color: rgb(255, 80, 80, 1);
+}
+@media only screen and (max-width: 600px) {
+    #videos {
+        grid-template-columns: 1fr; /* Change to single column layout */
+    }
+
+    .video-player {
+        height: auto; /* Allow height to adjust proportionally */
+    }
+
+    #controls {
+        bottom: 5%; /* Adjust the position of controls relative to the bottom */
+    }
+
+    input {
+        width: 80%; /* Make input fields narrower on smaller screens */
+    }
+}
