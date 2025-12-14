@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>PeerChat</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" media="screen" href='main.css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
@@ -12,34 +12,49 @@
 
 <body>
     <div id="videos">
-        <video class="video-player" id="user-1" autoplay playsinline></video>
+        <video class="video-player" id="user-1" autoplay playsinline muted></video>
         <video class="video-player" id="user-2" autoplay playsinline></video>
     </div>
     <div class="room-controls">
-        <div class="room-buttons">
-            <button id="createRoomBtn" onclick="createRoom()">Create Room</button>
-            <h1>OR</h1>
-            <button id="joinRoomBtn" onclick="joinRoom()">Join Room</button>
+        <div id="toggle-room-controls" class="toggle-btn">
+            <span class="toggle-icon">▼</span>
         </div>
-        <div class="label-class">
-            <label id="joinRoomLabel">Room Name:</label>
-            <input id="joinRoomInput" type="text" id="roomName" style="width: auto;">
-            <label id="createRoomLabel" style="display: none;">Room Name:</label>
-            <input id="createRoomInput" type="text" style="display: none; width: auto;">
-            <button id="copyRoomNameBtn" onclick="copyRoomId()" style="display: none;">Copy</button>
+        <div class="room-content">
+            <div class="room-buttons">
+                <button id="createRoomBtn" onclick="createRoom()">Create Room</button>
+                <h1>OR</h1>
+                <button id="joinRoomBtn" onclick="joinRoom()">Join Room</button>
+            </div>
+            <div class="label-class">
+                <label id="joinRoomLabel">Room Name:</label>
+                <input id="joinRoomInput" type="text" id="roomName">
+                <label id="createRoomLabel" style="display: none;">Room Name:</label>
+                <input id="createRoomInput" type="text" style="display: none;">
+                <button id="copyRoomNameBtn" onclick="copyRoomId()" style="display: none;">Copy Room ID</button>
+            </div>
         </div>
     </div>
     <div id="controls">
-        <div class="control-container" id="camera-btn">
-            <img src="icons/camera.png" />
+        <div class="control-container" id="camera-btn" title="Toggle Camera">
+            <img src="icons/camera.png" alt="Camera" />
         </div>
-        <div class="control-container" id="mic-btn">
-            <img src="icons/mic.png" />
+        <div class="control-container" id="mic-btn" title="Toggle Microphone">
+            <img src="icons/mic.png" alt="Microphone" />
         </div>
-        <!-- <div class="control-container" id="leave-btn">
-            <img src="icons/phone.png" />
-        </div> -->
-
+        <div class="control-container" id="flip-camera-btn" title="Flip Camera">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: white;">
+                <path d="M9 9v6l5-3-5-3z"></path>
+                <path d="M19 4v7"></path>
+                <path d="M19 15v5"></path>
+                <path d="M5 20v-7"></path>
+                <path d="M5 9V4"></path>
+                <path d="M19 11h-4"></path>
+                <path d="M5 13h4"></path>
+            </svg>
+        </div>
+        <div class="control-container" id="leave-btn" title="End Call">
+            <img src="icons/phone.png" alt="End Call" />
+        </div>
     </div>
 </body>
 <script src="main.js"></script>
